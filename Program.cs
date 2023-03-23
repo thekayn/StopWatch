@@ -6,6 +6,7 @@ Menu();
 //metodo de menu
 static void Menu()
 {
+    //===========================passagem de informacao para o usuario===========================
     Console.Clear();
     Console.WriteLine("StopWatch em Csharp");
     Console.WriteLine("Digite S = segundo");
@@ -13,22 +14,31 @@ static void Menu()
     Console.WriteLine("Digite 0 = Sair da aplicacao");
     Console.WriteLine("Quanto tempo deseja contar?");
 
+    //===================inicializacao dads variaveis====================
 
-    string data = Console.ReadLine().ToLower();//usuario escrevendo, ele escreve em string
-    char type = char.Parse(data.Substring(data.Length - 1, 1)); //pegar o ultimo charactere para saber qual tipo de dados, se vai ser minuto ou segundo
-    int time = int.Parse(data.Substring(0, data.Length - 1));//pegar as primeiras variaveis, no caso o tempo passado
-    int multiplier = 1; //base de tempo de 1segundos
+    //usuario escrevendo (ele escreve em string)
+    string data = Console.ReadLine().ToLower();
 
+    //pegar o ultimo charactere para saber qual tipo de dados, se vai ser minuto ou segundo
+    char type = char.Parse(data.Substring(data.Length - 1, 1));
+
+    //pegar as primeiras variaveis, no caso o tempo passado
+    int time = int.Parse(data.Substring(0, data.Length - 1));
+
+    //base de tempo de 1segundos
+    int multiplier = 1;
+
+    //==================================inicializacao das logicas de controle==================================
     if (type == 'm')
         multiplier = 60;
 
     if (time == 0)
         System.Environment.Exit(0);
 
+    //=======================fazendo um 'to go' para uma outra funcao================================
+
     //iniciando o metodo prestart
     PreStart(time * multiplier);
-
-
 }
 
 //metodo de prestart
